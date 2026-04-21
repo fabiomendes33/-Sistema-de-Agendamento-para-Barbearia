@@ -1,0 +1,10 @@
+var R=require("../../../chunks/[turbopack]_runtime.js")("server/app/api/agendamentos/route.js")
+R.c("server/chunks/src_app_api_agendamentos_route_ts_0pi557k._.js")
+R.c("server/chunks/node_modules_next_06o-7lx._.js")
+R.c("server/chunks/node_modules_@supabase_postgrest-js_dist_index_mjs_0uel2xe._.js")
+R.c("server/chunks/node_modules_@supabase_auth-js_dist_module_00jw3pg._.js")
+R.c("server/chunks/node_modules_0zhdfe~._.js")
+R.c("server/chunks/[root-of-the-server]__080g7sy._.js")
+R.c("server/chunks/_next-internal_server_app_api_agendamentos_route_actions_0ltp916.js")
+R.m("[project]/node_modules/next/dist/esm/build/templates/app-route.js { INNER_APP_ROUTE => \"[project]/src/app/api/agendamentos/route.ts [app-route] (ecmascript)\" } [app-route] (ecmascript)")
+module.exports=R.m("[project]/node_modules/next/dist/esm/build/templates/app-route.js { INNER_APP_ROUTE => \"[project]/src/app/api/agendamentos/route.ts [app-route] (ecmascript)\" } [app-route] (ecmascript)").exports
