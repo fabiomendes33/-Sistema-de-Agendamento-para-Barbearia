@@ -41,6 +41,8 @@ NEXT_PUBLIC_TELEFONE_BARBEARIA=(38) 99999-0000
 npm run dev
 ```
 
+https://sistema-de-agendamento-para-barbear.vercel.app/barbearia
+
 Acesse: http://localhost:3000
 
 ---
