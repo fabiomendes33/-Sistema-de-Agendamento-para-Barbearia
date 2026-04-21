@@ -1,9 +1,22 @@
 import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+function getSupabaseClient() {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL
+  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
-export const supabase = createClient(supabaseUrl, supabaseKey)
+  if (!url || !key) {
+    throw new Error(
+      '❌ Faltam as variáveis do Supabase!\n' +
+      'Crie o arquivo .env.local na raiz do projeto com:\n' +
+      'NEXT_PUBLIC_SUPABASE_URL=https://xxxx.supabase.co\n' +
+      'NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJ...'
+    )
+  }
+
+  return createClient(url, key)
+}
+
+export const supabase = getSupabaseClient()
 
 export type Agendamento = {
   id?: string

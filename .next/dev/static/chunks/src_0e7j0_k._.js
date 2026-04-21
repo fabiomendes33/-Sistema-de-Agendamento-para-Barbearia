@@ -15,9 +15,14 @@ __turbopack_context__.s([
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$supabase$2f$supabase$2d$js$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/node_modules/@supabase/supabase-js/dist/index.mjs [app-client] (ecmascript) <locals>");
 ;
-const supabaseUrl = ("TURBOPACK compile-time value", "https://isnkumnbnizmteesquml.supabase.co");
-const supabaseKey = ("TURBOPACK compile-time value", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imlzbmt1bW5ibml6bXRlZXNxdW1sIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY4MDM5OTYsImV4cCI6MjA5MjM3OTk5Nn0.m1ew3DiuqEE-gE-0bbwbJ0BR6gZJHrej0VBV4rcYl7E");
-const supabase = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$supabase$2f$supabase$2d$js$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["createClient"])(supabaseUrl, supabaseKey);
+function getSupabaseClient() {
+    const url = ("TURBOPACK compile-time value", "https://isnkumnbnizmteesquml.supabase.co");
+    const key = ("TURBOPACK compile-time value", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imlzbmt1bW5ibml6bXRlZXNxdW1sIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY4MDM5OTYsImV4cCI6MjA5MjM3OTk5Nn0.m1ew3DiuqEE-gE-0bbwbJ0BR6gZJHrej0VBV4rcYl7E");
+    if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+    ;
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$supabase$2f$supabase$2d$js$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["createClient"])(url, key);
+}
+const supabase = getSupabaseClient();
 const SERVICOS = [
     {
         id: 'corte',
@@ -1276,6 +1281,13 @@ function SummaryRow({ icon, label, value, extra }) {
 }
 _c1 = SummaryRow;
 function SuccessScreen({ form, servico, barbeiro, onNew }) {
+    const telefone = (("TURBOPACK compile-time value", "(34) 99960-5820") || '34999605820').replace(/\D/g, '');
+    const nomeBarbearia = ("TURBOPACK compile-time value", "Barbearia Dom") || 'Barbearia Dom';
+    const dataFormatada = form.data ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$date$2d$fns$2f$format$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["format"])(form.data, "dd/MM/yyyy", {
+        locale: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$date$2d$fns$2f$locale$2f$pt$2d$BR$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ptBR"]
+    }) : '';
+    const mensagemWhatsApp = encodeURIComponent(`Olá! Acabei de fazer um agendamento pelo site da ${nomeBarbearia}:\n\n` + `✂️ Serviço: ${servico?.nome}\n` + `👤 Barbeiro: ${barbeiro?.nome}\n` + `📅 Data: ${dataFormatada}\n` + `🕐 Horário: ${form.horario}\n` + `👤 Nome: ${form.nome_cliente}\n\n` + `Aguardo a confirmação!`);
+    const linkWhatsApp = `https://wa.me/55${telefone}?text=${mensagemWhatsApp}`;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "min-h-screen bg-barber-black bg-texture flex flex-col items-center justify-center p-6",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1291,12 +1303,12 @@ function SuccessScreen({ form, servico, barbeiro, onNew }) {
                         className: "text-barber-black"
                     }, void 0, false, {
                         fileName: "[project]/src/app/barbearia/page.tsx",
-                        lineNumber: 420,
+                        lineNumber: 436,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/app/barbearia/page.tsx",
-                    lineNumber: 419,
+                    lineNumber: 435,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -1307,7 +1319,7 @@ function SuccessScreen({ form, servico, barbeiro, onNew }) {
                     children: "Agendado!"
                 }, void 0, false, {
                     fileName: "[project]/src/app/barbearia/page.tsx",
-                    lineNumber: 423,
+                    lineNumber: 439,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1322,11 +1334,11 @@ function SuccessScreen({ form, servico, barbeiro, onNew }) {
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/barbearia/page.tsx",
-                    lineNumber: 426,
+                    lineNumber: 442,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "card-dark rounded-2xl p-6 text-left space-y-3 mb-8 animate-fade-up animate-delay-300",
+                    className: "card-dark rounded-2xl p-6 text-left space-y-3 mb-6 animate-fade-up animate-delay-300",
                     style: {
                         animationFillMode: 'forwards'
                     },
@@ -1339,7 +1351,7 @@ function SuccessScreen({ form, servico, barbeiro, onNew }) {
                                     children: "Serviço"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/barbearia/page.tsx",
-                                    lineNumber: 432,
+                                    lineNumber: 448,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1347,13 +1359,13 @@ function SuccessScreen({ form, servico, barbeiro, onNew }) {
                                     children: servico?.nome
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/barbearia/page.tsx",
-                                    lineNumber: 433,
+                                    lineNumber: 449,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/barbearia/page.tsx",
-                            lineNumber: 431,
+                            lineNumber: 447,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1364,7 +1376,7 @@ function SuccessScreen({ form, servico, barbeiro, onNew }) {
                                     children: "Barbeiro"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/barbearia/page.tsx",
-                                    lineNumber: 436,
+                                    lineNumber: 452,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1372,13 +1384,13 @@ function SuccessScreen({ form, servico, barbeiro, onNew }) {
                                     children: barbeiro?.nome
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/barbearia/page.tsx",
-                                    lineNumber: 437,
+                                    lineNumber: 453,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/barbearia/page.tsx",
-                            lineNumber: 435,
+                            lineNumber: 451,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1389,7 +1401,7 @@ function SuccessScreen({ form, servico, barbeiro, onNew }) {
                                     children: "Data"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/barbearia/page.tsx",
-                                    lineNumber: 440,
+                                    lineNumber: 456,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1399,13 +1411,13 @@ function SuccessScreen({ form, servico, barbeiro, onNew }) {
                                     }) : ''
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/barbearia/page.tsx",
-                                    lineNumber: 441,
+                                    lineNumber: 457,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/barbearia/page.tsx",
-                            lineNumber: 439,
+                            lineNumber: 455,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1416,7 +1428,7 @@ function SuccessScreen({ form, servico, barbeiro, onNew }) {
                                     children: "Horário"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/barbearia/page.tsx",
-                                    lineNumber: 446,
+                                    lineNumber: 462,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1424,53 +1436,88 @@ function SuccessScreen({ form, servico, barbeiro, onNew }) {
                                     children: form.horario
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/barbearia/page.tsx",
-                                    lineNumber: 447,
+                                    lineNumber: 463,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/barbearia/page.tsx",
-                            lineNumber: 445,
+                            lineNumber: 461,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/barbearia/page.tsx",
-                    lineNumber: 430,
+                    lineNumber: 446,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                    href: linkWhatsApp,
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                    className: "flex items-center justify-center gap-3 w-full py-4 rounded-xl font-semibold mb-3 transition-all duration-300 animate-fade-up animate-delay-400",
+                    style: {
+                        animationFillMode: 'forwards',
+                        background: 'linear-gradient(135deg, #25D366, #128C7E)',
+                        color: '#fff'
+                    },
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                            width: "22",
+                            height: "22",
+                            viewBox: "0 0 24 24",
+                            fill: "white",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                d: "M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/barbearia/page.tsx",
+                                lineNumber: 481,
+                                columnNumber: 13
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/src/app/barbearia/page.tsx",
+                            lineNumber: 480,
+                            columnNumber: 11
+                        }, this),
+                        "Confirmar pelo WhatsApp"
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/app/barbearia/page.tsx",
+                    lineNumber: 468,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                    className: "text-xs text-gray-600 mb-6 animate-fade-up animate-delay-400",
+                    className: "text-xs text-gray-600 mb-4 animate-fade-up animate-delay-500",
                     style: {
                         animationFillMode: 'forwards'
                     },
                     children: "Cancelamentos com até 2h de antecedência pelo WhatsApp"
                 }, void 0, false, {
                     fileName: "[project]/src/app/barbearia/page.tsx",
-                    lineNumber: 451,
+                    lineNumber: 486,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                     onClick: onNew,
-                    className: "btn-gold w-full py-4 rounded-xl font-semibold animate-fade-up animate-delay-500",
+                    className: "w-full py-3 rounded-xl font-semibold text-sm border border-barber-steel text-gray-400 hover:border-barber-gold/40 hover:text-barber-gold transition-all animate-fade-up animate-delay-600",
                     style: {
                         animationFillMode: 'forwards'
                     },
                     children: "Fazer novo agendamento"
                 }, void 0, false, {
                     fileName: "[project]/src/app/barbearia/page.tsx",
-                    lineNumber: 455,
+                    lineNumber: 490,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/barbearia/page.tsx",
-            lineNumber: 418,
+            lineNumber: 434,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/app/barbearia/page.tsx",
-        lineNumber: 417,
+        lineNumber: 433,
         columnNumber: 5
     }, this);
 }
